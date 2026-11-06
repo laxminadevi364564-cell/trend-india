@@ -1,0 +1,10 @@
+{
+  "name": "TREND INDIA",
+  "short_name": "TREND INDIA",
+  "description": "Your talent. Your India.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0d1018",
+  "theme_color": "#10131d",
+  "icons": []
+}

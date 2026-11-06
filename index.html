@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#10131d">
+  <meta name="description" content="TREND INDIA — हर टैलेंट को मिले पहचान">
+  <link rel="manifest" href="manifest.webmanifest">
+  <title>TREND INDIA</title>
+  <style>
+    :root{--bg:#0d1018;--panel:#171c29;--panel2:#20283a;--text:#f5f7fb;--muted:#aab3c5;--line:#2c3548;--accent:#ff8a32;--green:#39c889}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+    button,input,textarea{font:inherit}button{cursor:pointer;border:0}
+    .app{max-width:520px;margin:auto;min-height:100vh;padding-bottom:78px;background:linear-gradient(180deg,#111725 0,#0d1018 320px)}
+    header{position:sticky;top:0;z-index:5;background:#101521ed;backdrop-filter:blur(14px);padding:14px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+    .brand{font-weight:900;letter-spacing:.7px;font-size:20px}.brand span{color:var(--accent)}.tag{font-size:10px;color:var(--muted);letter-spacing:1.3px}
+    .head-actions{display:flex;gap:8px}.iconbtn{background:var(--panel2);color:white;border-radius:12px;padding:9px 11px}
+    .hero{padding:18px 16px 12px}.eyebrow{color:var(--green);font-size:11px;font-weight:800;letter-spacing:1.5px}.hero h1{font-size:27px;line-height:1.13;margin:7px 0}.hero p{color:var(--muted);margin:0;font-size:13px}
+    .stories{display:flex;gap:13px;overflow:auto;padding:10px 16px 18px}.story{min-width:62px;text-align:center;font-size:11px;color:var(--muted)}
+    .avatar{width:52px;height:52px;border-radius:18px;background:linear-gradient(135deg,#ff8a32,#e84375,#5d66ef);padding:2px;margin:0 auto 6px}
+    .avatar div{height:100%;border-radius:16px;background:#20283a;display:grid;place-items:center;font-weight:800;color:white}
+    .section{padding:0 16px 12px;display:flex;align-items:center;justify-content:space-between}.section strong{font-size:16px}.section small{color:var(--muted)}
+    .composer{margin:0 16px 16px;padding:12px;background:var(--panel);border:1px solid var(--line);border-radius:17px;display:flex;gap:10px;align-items:center}
+    .composer input{min-width:0;flex:1;background:transparent;border:0;outline:0;color:white}.pill{background:var(--accent);color:#17120e;font-weight:800;padding:9px 13px;border-radius:12px}
+    .post{margin:0 16px 16px;background:var(--panel);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+    .posthead{display:flex;align-items:center;gap:10px;padding:13px}.mini{width:36px;height:36px;border-radius:13px;background:linear-gradient(135deg,#ff8a32,#5d66ef);display:grid;place-items:center;font-weight:900}
+    .postname{font-weight:750;font-size:13px}.handle{font-size:11px;color:var(--muted)}.dots{margin-left:auto;color:var(--muted)}
+    .art{height:230px;display:grid;place-items:center;text-align:center;padding:20px;background:radial-gradient(circle at 75% 25%,#ffb45d88,transparent 26%),linear-gradient(135deg,#243e55,#172235 55%,#34223d)}
+    .art.alt{background:radial-gradient(circle at 25% 25%,#39c88988,transparent 30%),linear-gradient(135deg,#193e3a,#19263b 60%,#34305a)}
+    .art b{font-size:29px;line-height:1.05;max-width:280px}.art span{display:block;color:#d7e4ef;margin-top:10px;font-size:12px;letter-spacing:2px}
+    .postbody{padding:12px 14px}.postbody p{margin:7px 0 0;font-size:13px;line-height:1.45}.postactions{display:flex;gap:17px;padding:0 14px 13px;color:var(--muted)}.act{background:none;color:inherit;padding:0}.act.liked{color:#ff6686}.comments{display:none;padding:0 14px 14px}.comments.show{display:block}.comments input{width:100%;background:#0e1420;border:1px solid var(--line);padding:10px;border-radius:10px;color:white}
+    nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(520px,100%);display:flex;justify-content:space-around;background:#111725f5;border-top:1px solid var(--line);padding:11px 8px calc(11px + env(safe-area-inset-bottom));z-index:8}
+    nav button{background:none;color:var(--muted);font-size:11px;display:grid;gap:3px;justify-items:center}nav button.active{color:var(--accent)}nav b{font-size:20px}
+    .toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:#f5f7fb;color:#111;padding:10px 15px;border-radius:12px;font-size:12px;display:none;z-index:10}
+    .modal{display:none;position:fixed;inset:0;background:#0009;z-index:20;align-items:end;justify-content:center}.modal.open{display:flex}.sheet{background:#171c29;border:1px solid var(--line);border-radius:22px 22px 0 0;padding:20px;width:min(520px,100%)}.sheet h2{margin:0 0 14px}.sheet input,.sheet textarea{width:100%;background:#0e1420;border:1px solid var(--line);border-radius:12px;color:white;padding:12px;margin:6px 0 12px}.sheet textarea{min-height:85px;resize:vertical}.row{display:flex;gap:10px}.row button{flex:1;padding:12px;border-radius:12px}.secondary{background:var(--panel2);color:white}
+    @media(min-width:600px){body{padding:18px 0}.app{border:1px solid var(--line);border-radius:25px;overflow:hidden;min-height:calc(100vh - 36px)}nav{bottom:18px;border-radius:0 0 25px 25px}}
+  </style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div><div class="brand">TREND <span>INDIA</span> 🇮🇳</div><div class="tag" data-en="YOUR TALENT. YOUR INDIA." data-hi="आपका टैलेंट • आपका भारत">YOUR TALENT. YOUR INDIA.</div></div>
+    <div class="head-actions"><button class="iconbtn" id="lang">हिं / EN</button><button class="iconbtn" aria-label="Notifications">♧</button></div>
+  </header>
+  <section class="hero">
+    <div class="eyebrow" data-en="A NEW INDIAN SOCIAL SPACE" data-hi="एक नया भारतीय सोशल प्लेटफॉर्म">A NEW INDIAN SOCIAL SPACE</div>
+    <h1 data-en="Every talent deserves<br>a spotlight." data-hi="हर टैलेंट को मिले<br>अपनी पहचान।">Every talent deserves<br>a spotlight.</h1>
+    <p data-en="Share your moments. Discover your people. Make trends." data-hi="अपने पल शेयर करो। नए लोगों से जुड़ो। नए ट्रेंड बनाओ।">Share your moments. Discover your people. Make trends.</p>
+  </section>
+  <div class="stories" aria-label="Creator stories">
+    <div class="story"><div class="avatar"><div>＋</div></div><span data-en="Your story" data-hi="आपकी स्टोरी">Your story</span></div>
+    <div class="story"><div class="avatar"><div>RK</div></div>Rahul</div>
+    <div class="story"><div class="avatar"><div>PS</div></div>Priya</div>
+    <div class="story"><div class="avatar"><div>AM</div></div>Aman</div>
+    <div class="story"><div class="avatar"><div>SK</div></div>Sana</div>
+    <div class="story"><div class="avatar"><div>DJ</div></div>DJ Vibes</div>
+  </div>
+  <div class="section"><strong data-en="Trending in India" data-hi="भारत में ट्रेंडिंग">Trending in India</strong><small>#TrendIndia</small></div>
+  <div class="composer"><div class="mini">TI</div><input id="quickpost" placeholder="What's happening? / क्या चल रहा है?"><button class="pill" id="openpost" data-en="Post" data-hi="पोस्ट">Post</button></div>
+  <main id="feed">
+    <article class="post">
+      <div class="posthead"><div class="mini">RK</div><div><div class="postname">Rahul Kumar</div><div class="handle">@rahul_creates · 2h</div></div><div class="dots">•••</div></div>
+      <div class="art"><div><b>CREATE<br>YOUR OWN<br>HORIZON.</b><span>MAKE IT TREND.</span></div></div>
+      <div class="postbody"><strong>Small town, big dreams ✨</strong><p>हर दिन कुछ नया सीखो और अपने सपनों की तरफ बढ़ते रहो। #TrendIndia</p></div>
+      <div class="postactions"><button class="act like">♡ <span>128</span></button><button class="act comment">◯ 24</button><button class="act share">↗ Share</button><button class="act">▱</button></div>
+      <div class="comments"><input placeholder="Write a comment / कमेंट लिखें"></div>
+    </article>
+    <article class="post">
+      <div class="posthead"><div class="mini">PS</div><div><div class="postname">Priya Singh</div><div class="handle">@priya_frames · 5h</div></div><div class="dots">•••</div></div>
+      <div class="art alt"><div><b>INDIA<br>IN EVERY<br>FRAME 🇮🇳</b><span>EXPLORE • CREATE • CONNECT</span></div></div>
+      <div class="postbody"><strong>My beautiful India 💚</strong><p>अपने शहर की खूबसूरती दुनिया को दिखाओ।</p></div>
+      <div class="postactions"><button class="act like">♡ <span>96</span></button><button class="act comment">◯ 12</button><button class="act share">↗ Share</button><button class="act">▱</button></div>
+      <div class="comments"><input placeholder="Write a comment / कमेंट लिखें"></div>
+    </article>
+  </main>
+  <nav>
+    <button class="active"><b>⌂</b><span data-en="Home" data-hi="होम">Home</span></button>
+    <button><b>▶</b><span>Reels</span></button>
+    <button id="navadd"><b>⊕</b><span data-en="Create" data-hi="बनाएँ">Create</span></button>
+    <button><b>⌕</b><span data-en="Explore" data-hi="खोजें">Explore</span></button>
+    <button><b>◉</b><span data-en="Profile" data-hi="प्रोफाइल">Profile</span></button>
+  </nav>
+</div>
+<div class="toast" id="toast">Demo interaction only — backend not connected yet.</div>
+<div class="modal" id="modal">
+  <div class="sheet">
+    <h2 data-en="Create a post" data-hi="नई पोस्ट बनाएँ">Create a post</h2>
+    <label data-en="Your caption" data-hi="आपका कैप्शन">Your caption</label>
+    <textarea id="caption" placeholder="Share something positive... / कुछ अच्छा शेयर करें..."></textarea>
+    <label data-en="Image or video (demo only)" data-hi="फोटो या वीडियो (अभी डेमो)">Image or video (demo only)</label>
+    <input type="file" accept="image/*,video/*" id="media">
+    <div class="row"><button class="secondary" id="cancel" data-en="Cancel" data-hi="रद्द करें">Cancel</button><button class="pill" id="publish" data-en="Preview post" data-hi="पोस्ट प्रीव्यू">Preview post</button></div>
+  </div>
+</div>
+<script>
+let hindi=false;
+const toast=document.getElementById('toast');
+function showToast(msg){toast.textContent=msg||'Demo interaction only — backend not connected yet.';toast.style.display='block';setTimeout(()=>toast.style.display='none',2200)}
+document.getElementById('lang').onclick=()=>{hindi=!hindi;document.querySelectorAll('[data-en]').forEach(el=>el.innerHTML=hindi?el.dataset.hi:el.dataset.en);document.documentElement.lang=hindi?'hi':'en'};
+document.querySelectorAll('.like').forEach(b=>b.onclick=()=>{b.classList.toggle('liked');let s=b.querySelector('span');let n=Number(s.textContent);s.textContent=b.classList.contains('liked')?n+1:n-1;b.firstChild.textContent=b.classList.contains('liked')?'♥ ':'♡ ';});
+document.querySelectorAll('.comment').forEach(b=>b.onclick=()=>b.closest('.post').querySelector('.comments').classList.toggle('show'));
+document.querySelectorAll('.share').forEach(b=>b.onclick=()=>showToast('Share will be connected in the next version.'));
+const modal=document.getElementById('modal');
+function openModal(){modal.classList.add('open')}
+document.getElementById('openpost').onclick=openModal;document.getElementById('navadd').onclick=openModal;
+document.getElementById('cancel').onclick=()=>modal.classList.remove('open');
+document.getElementById('publish').onclick=()=>{let c=document.getElementById('caption').value.trim();if(!c){showToast('Please add a caption first.');return}let post=document.createElement('article');post.className='post';post.innerHTML='<div class="posthead"><div class="mini">YOU</div><div><div class="postname">Your profile</div><div class="handle">@your_trend · just now</div></div></div><div class="postbody"><strong>New post preview</strong><p></p></div><div class="postactions"><button class="act like">♡ <span>0</span></button><button class="act">◯ 0</button><button class="act share">↗ Share</button></div>';post.querySelector('p').textContent=c;document.getElementById('feed').prepend(post);modal.classList.remove('open');document.getElementById('caption').value='';document.getElementById('media').value='';showToast('Preview added on this device only.');};
+document.querySelectorAll('nav button:not(#navadd)').forEach(b=>b.onclick=()=>showToast('This section will be built in the next version.'));
+if('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('./sw.js').catch(()=>{});
+</script>
+</body>
+</html>
